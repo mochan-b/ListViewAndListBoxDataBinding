@@ -1,0 +1,31 @@
+﻿<Window x:Class="ListViewAndListBoxDataBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListViewAndListBoxDataBinding"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="525">
+    <Grid>
+        <StackPanel Margin="10">
+            <ListBox ItemsSource="{Binding numbers_list}" Margin="4,0,1,10" Height="250">
+            </ListBox>
+            <ListView Grid.Row="4" Grid.Column="0" Margin="10,0,10,10" ItemsSource="{Binding numstr_list}" Name="Tasks" Height="250">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Number" Width="150" DisplayMemberBinding="{Binding Path=num}"></GridViewColumn>
+                            <GridViewColumn Header="String" Width="250" DisplayMemberBinding="{Binding Path=str}"></GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,10">
+                <Button MinWidth="75" Margin="10,0,0,0" Click="AddNumber">Add</Button>
+                <Button MinWidth="75" Margin="10,0,0,0" Click="DeleteNumber">Delete</Button>
+                <Button MinWidth="75" Margin="10,0,0,0" Click="NewNumbers">New</Button>
+                <Button MinWidth="75" Margin="10,0,0,0" Click="NewList">New List</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
